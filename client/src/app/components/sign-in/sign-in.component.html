@@ -1,0 +1,58 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - -->
+<!-- ============================================================== -->
+<section id="wrapper" class="login-register login-sidebar  animated fadeIn fast"
+    style="background-image:url(../assets/images/unipanamericana.jpg);">
+    <div class="login-box card">
+        <div class="card-body">
+            <form class="form-horizontal form-material" (ngSubmit)="crearUsuario()">
+               
+               <h1 style="text-align: center;">PREGUNTADOS <i class="fas fa-question-circle"></i> </h1>
+                <br>
+                <div class="form-group m-t-40 ">
+                    <div class="col-xs-12 ">
+                        <input class="form-control " type="text " [(ngModel)]="personForm.nombre" placeholder="Estudiante " name="name">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 ">
+                        <input class="form-control " type="text " [(ngModel)]="personForm.nickName" placeholder="Nickname " name="nickName">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 ">
+                        <input class="form-control " type="text " [(ngModel)]="personForm.carrera" placeholder="Carrera universitaria " name="carrera">
+                    </div>
+                </div>
+                <div class="form-group m-t-40 ">
+                    <div class="col-xs-12 ">
+                        <input class="form-control " type="text " [(ngModel)]="personForm.correo" placeholder="Correo Instucional " name="correo">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 ">
+                        <input class="form-control " type="text " [(ngModel)]="personForm.id_imagen" placeholder="URL Imagen" name="imagen">
+                    </div>
+                </div>
+                <div class="imagen-form">
+                    <img class="imagen-form" src="https://www.softzone.es/app/uploads/2018/04/guest.png" id="imagen">
+                </div>
+                <div class="form-group row ">
+                </div>
+                <div class="form-group text-center m-t-20 ">
+                    <div class="col-xs-12 ">
+                        <button style="background-color: #e86320; color: white;" class="btn btn-lg btn-block text-uppercase btn-rounded "
+                            type="submit ">Ingresar</button>
+                    </div>
+                </div>
+                <div class="form-group m-b-0 ">
+                    <div class="col-sm-12 text-center ">
+                        Bienenvenido a Preguntados: edicion infraestructura unipanamericana, te pedimos diligenciar tus datos con el fin de tener la certeza de quién está participando
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End Wrapper -->
+<!-- ============================================================== -->
