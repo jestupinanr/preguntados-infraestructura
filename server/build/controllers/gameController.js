@@ -23,17 +23,26 @@ class GameController {
     }
     saveScore(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("emtre");
-            //await pool.query('INSERT INTO USER set ?', [req.body]);
-            res.json({ text: 'updating a game' + req.params });
-            console.log(req.params);
+            yield database_1.default.query('insert into SCORE set id_user=?, score=? ', [req.body.id_person, req.body.scoreEnd]);
+            res.json({ text: 'score saved' });
         });
     }
-    delete(req, res) {
-        res.json({ text: 'deleting a game' });
-    }
-    update(req, res) {
-        res.json({ text: 'updating a game' + req.params.id });
+    getRanking(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const ranking = yield database_1.default.query('SELECT ' +
+                'SCORE.score, ' +
+                'USER.nombre, ' +
+                'USER.nickName, ' +
+                'USER.correo, ' +
+                'USER.carrera, ' +
+                'USER.id_imagen ' +
+                'FROM SCORE ' +
+                'JOIN USER ' +
+                'ON SCORE.id_user= USER.id ' +
+                'ORDER BY SCORE.score DESC ' +
+                'LIMIT 10');
+            res.json(ranking);
+        });
     }
 }
 exports.gameController = new GameController();

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {score} from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,11 @@ export class GameService {
   getAllQuestions() {
     return this.http.get(`${this.API_URI}/game`);
   }
-  saveScore (id : number, score : number){
-    console.log("entre2");
-    return this.http.post('${this.API_URI}/game/${id}', score);
+  CreatePerson(data: score){
+    console.log("entre");
+    return this.http.post(`${this.API_URI}/game`, data);
+  }
+  getRanking() {
+    return this.http.get(`${this.API_URI}/game/ranking`);
   }
 }

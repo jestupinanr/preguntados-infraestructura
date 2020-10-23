@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import Swal from 'sweetalert2';
+import {score} from '../../models/game'
 
 import {GameService} from '../../services/game.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -21,9 +22,15 @@ export class PlayComponent implements OnInit {
     questionAnswer = 0;
     time = 0;
     startTime = timer();
+    subscription = timer();
     endTime =0;
-    score = 1000;
+    scoreGame = 1000;
     lapsoTime = 0;
+
+    score: score = {
+      id_person : -1,
+      scoreEnd : -1
+    };
     
   ngOnInit(): void {
     this.datosUrl= {
@@ -55,14 +62,14 @@ export class PlayComponent implements OnInit {
       const opcion = document.querySelector('#op'+idQ+idOp+'');
       opcion.setAttribute('class', 'btn btn-outline-success btn-block');
       opcion.setAttribute("disabled", "disabled");
-      this.score = this.score+100;
+      this.scoreGame = this.scoreGame+100;
     }else{
       const noRta = document.querySelector('#op'+idQ+idOp+'');
       noRta.setAttribute('class', 'btn btn-outline-danger btn-block');
-      this.score = this.score+20;
+      this.scoreGame = this.scoreGame+20;
     }
     //al score restarle el tiempo que duro resolviendo la pregunta, se supone que entre mas rapdio mas puntos gana
-    this.score=this.score-(this.time-this.lapsoTime);
+    this.scoreGame=this.scoreGame-(this.time-this.lapsoTime);
     this.lapsoTime = this.time;
     //deshabilitar respuesta
     for (var i = 1; i <=4; i++){
@@ -85,7 +92,7 @@ export class PlayComponent implements OnInit {
     //mostrar mensaje con el resultado 
     Swal.fire({
       title: '¡Terminaste el juego! \n tu puntaje es',
-      html: '<h2>'+this.score+' Puntos </h2><br> <h2>en '+this.endTime+' Segundos</h2>',
+      html: '<h2>'+this.scoreGame+' Puntos </h2><br> <h2>en '+this.endTime+' Segundos</h2>',
       width: 600,
       padding: '3em',
       backdrop: `
@@ -96,7 +103,18 @@ export class PlayComponent implements OnInit {
     this.guardarScore()
   }
   guardarScore (){
-    console.log("entre1");
-    this.GameService.saveScore(this.datosUrl.id, this.score);
+    this.score.id_person = this.datosUrl.id;
+    this.score.scoreEnd=this.scoreGame;
+    this.GameService.CreatePerson(this.score).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+    /*.subscribe(
+       res => {
+        console.log(res);
+       },
+     )*/
   }
 }

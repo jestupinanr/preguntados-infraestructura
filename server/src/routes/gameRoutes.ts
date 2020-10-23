@@ -11,9 +11,8 @@ class PersonRouter{
 
     config(): void{
         this.router.get('/', gameController.getAllQuestions);
-        this.router.post('/:id', gameController.saveScore);
-        this.router.delete('/:id',gameController.delete);
-        this.router.put('/:id', gameController.update);
+        this.router.get('/ranking', gameController.getRanking);
+        this.router.post('/', gameController.saveScore);
     }
 }
 

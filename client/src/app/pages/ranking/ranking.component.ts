@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PersonService } from '../../services/person.service'
+import { PersonService } from '../../services/person.service';
+import { GameService } from '../../services/game.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-person-list',
@@ -9,21 +10,26 @@ import { Router } from '@angular/router';
 })
 export class RankingComponent implements OnInit {
 
-  constructor(private personService: PersonService,
+  constructor(private GameService: GameService,
               private router: Router) {
 
                }
 
-  person : any = [];
+  allRanking : any = [];
+  topRanking : any = [];
   ngOnInit(): void {
-    this.personService.getPersons().subscribe(
+    this.GameService.getRanking().subscribe(
       res => {
-        this.person = res;
+        this.allRanking = res;
+        this.getTopRanking();
+        console.log(res);
       },
       err => console.error(err)
     );
   }
-
+  getTopRanking(){
+    
+  }
   //FUNCIÓN PARA ENRUTAR COMPONENTES MEDIANTE BOTONES
   addEmploye(){
     this.router.navigate( ['/agregar-empleado'] );

@@ -3,23 +3,28 @@ import pool from '../database';
 
 class GameController {
     
-    public async getAllQuestions (req:Request, res:Response) : Promise<void>{
+    public async getAllQuestions (req:Request, res:Response) : Promise<any>{
         const questions = await pool.query('SELECT * from question');
         res.json(questions);
     }
     public async saveScore (req: Request, res : Response): Promise<void>{
-        console.log("emtre");
-        //await pool.query('INSERT INTO USER set ?', [req.body]);
-        res.json({text: 'updating a game'+ req.params});
-        console.log(req.params);
+        await pool.query('insert into SCORE set id_user=?, score=? ', [req.body.id_person, req.body.scoreEnd]);
+        res.json({text:'score saved'});
     }
-
-    public delete (req: Request, res : Response){
-        res.json({text: 'deleting a game'});
-    }
-
-    public update (req: Request, res : Response){
-        res.json({text: 'updating a game'+ req.params.id});
+    public async getRanking (req:Request, res:Response) : Promise<any>{
+        const ranking = await pool.query('SELECT '+
+        'SCORE.score, '+
+        'USER.nombre, '+
+        'USER.nickName, '+
+        'USER.correo, '+
+        'USER.carrera, '+
+        'USER.id_imagen '+
+        'FROM SCORE '+
+        'JOIN USER '+
+        'ON SCORE.id_user= USER.id '+
+        'ORDER BY SCORE.score DESC '+
+        'LIMIT 10');
+       res.json(ranking);
     }
 }
 

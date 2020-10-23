@@ -12,9 +12,8 @@ class PersonRouter {
     }
     config() {
         this.router.get('/', gameController_1.default.getAllQuestions);
-        this.router.post('/:id', gameController_1.default.saveScore);
-        this.router.delete('/:id', gameController_1.default.delete);
-        this.router.put('/:id', gameController_1.default.update);
+        this.router.get('/ranking', gameController_1.default.getRanking);
+        this.router.post('/', gameController_1.default.saveScore);
     }
 }
 const gameRouter = new PersonRouter();

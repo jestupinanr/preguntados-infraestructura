@@ -17,26 +17,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>josep</td>
-                <td>Otto</td>
-                <td>Ingeniería de software</td>
-                <td>19200</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Administración de empresas</td>
-                <td>13100</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Mercadeo</td>
-                <td>9500</td>
+              <tr *ngFor ="let allRanking of allRanking; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>aqui va la imagen</td>
+                <td>{{allRanking.nickName}}</td>
+                <td>{{allRanking.carrera}}</td>
+                <td>{{allRanking.score}}</td>
               </tr>
             </tbody>
           </table>

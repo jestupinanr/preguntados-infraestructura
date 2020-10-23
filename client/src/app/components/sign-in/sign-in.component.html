@@ -35,8 +35,8 @@
                     </div>
                 </div>
                 <div class="imagen-form">
-                    <img class="imagen-form" src="https://www.softzone.es/app/uploads/2018/04/guest.png" id="imagen">
-                </div>
+                    <img class="imagen-form" [src]="personForm.id_imagen == '' || personForm.id_imagen == null ? 'https://www.softzone.es/app/uploads/2018/04/guest.png' : personForm.id_imagen" alt="No Image">
+                </div> 
                 <div class="form-group row ">
                 </div>
                 <div class="form-group text-center m-t-20 ">
