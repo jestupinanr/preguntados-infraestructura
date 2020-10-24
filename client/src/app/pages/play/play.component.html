@@ -13,11 +13,18 @@
   <div> 
     <h2 id="score" class="my-fixed-item" ng-change="score" >{{scoreGame}}</h2>
   </div>
+  <br>
+  <br>
+  <div class="btnsBonus btnEspacio5050"> 
+    <button id="mitad" class="my-fixed-item btnBonus btn btn-outline-primary" (click)="bonus5050()">50:50</button>
+  </div>
+  <div class="btnsBonus btnEspacioSB"> 
+    <button id="saberRespuesta" class="my-fixed-item btnBonus btn btn-outline-success" (click)="saberRespuestaBonus()">Saber repuesta</button>
+  </div>
+  <div class="btnsBonus btnEspacioDV"> 
+    <button id="dosVeces" class="my-fixed-item btnBonus btn btn-outline-info" (click) = "dosVeces()">Dos Intentos</button>
+  </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 <div class="row align-items-center" *ngIf="!empezar">
   <button type="button" class="btn btn-primary btn-lg btn-block" (click)="empezarJuego()">empezar</button>
 </div>

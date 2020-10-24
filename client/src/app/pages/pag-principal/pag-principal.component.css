@@ -4,3 +4,12 @@
     align-items: center;
     margin: 5%;
 }
+.tooltip.top .tiptext{
+    margin-left: -60px;
+    bottom: 150%;
+    left: 50%;}​​​​​.tooltip.top .tiptext::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: #2E2E2E transparent transparent transparent;
+    }

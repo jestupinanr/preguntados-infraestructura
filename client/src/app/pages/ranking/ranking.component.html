@@ -19,7 +19,7 @@
             <tbody>
               <tr *ngFor ="let allRanking of allRanking; let i=index">
                 <th scope="row">{{i+1}}</th>
-                <td>aqui va la imagen</td>
+                <td><img [src]="allRanking.id_imagen == '' || allRanking.id_imagen == null ? 'https://www.softzone.es/app/uploads/2018/04/guest.png' : allRanking.id_imagen"></td>
                 <td>{{allRanking.nickName}}</td>
                 <td>{{allRanking.carrera}}</td>
                 <td>{{allRanking.score}}</td>

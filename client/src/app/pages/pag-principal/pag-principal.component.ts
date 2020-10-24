@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {PersonService} from '../../services/person.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pag-principal',
@@ -19,7 +20,6 @@ export class PagPrincipalComponent implements OnInit {
         this.person = res;
       },
       err => console.log(err)
-      
     )
     console.log(this.person);
   }

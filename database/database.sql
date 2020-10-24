@@ -22,12 +22,24 @@ Create table QUESTION(
     opcion_3 varchar (200),
     clue varchar (200)
 )
+SELECT 
+    SCORE.score,
+    USER.nombre,
+    USER.nickName,
+    USER.correo,
+    USER.carrera,
+    USER.id_imagen
+FROM SCORE 
+JOIN USER 
+    ON SCORE.id_user= USER.id
+ORDER BY  SCORE.score ASC;
 
 Create table SCORE (
      id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
      id_user int (8),
      score int (10)
 )
+
 
 create table IMAGEN (
     id_image int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -36,10 +48,18 @@ create table IMAGEN (
 
 insert into QUESTION set
     text_question = '¿Cuál es el nombre de esta sede?',
-    id_imagen = 'https://pbs.twimg.com/media/CLmAF7NUsAAFLA8.jpg:large',
-    respuesta = 1,
-    opcion_1 = '["Wayuu", 1]',
-    opcion_2 = '["u´Wa", 2]',
-    opcion_3 = '["Caribe", 3]',
-    clue = 'Tambien conocidos como guajiros son oborigenes de la peninsula de la guajira, sobre el mar del caribe, que habitan principalmente en territorios de la guajira en Colombia y el Zulian en Venezuela'
+    id_imagen = '../assets/images/tairona.jpg',
+    respuesta = 3,
+    opcion_1 = 'Awa',
+    opcion_2 = 'Wayuu',
+    opcion_3 = 'Tairona',
+    clue = 'Fueron un grupo indígena que habitaba en los departamentos colombianos de Magdalena, Guajira y Cesar, en las faldas de la Sierra nevada de santa marta'
+insert into SCORE set
+    id_user = 8,
+    score = 1245,
 
+select 
+id_user,
+score
+from SCORE
+ORDER BY score DESC;

@@ -1,6 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { personForm } from '../../models/person';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 import {PersonService} from '../../services/person.service';
 
@@ -30,8 +33,23 @@ personForm: personForm = {
   ngOnInit(): void {
   }
 
+   validar() {
+   if(this.personForm.nombre == "" || this.personForm.nickName == "" || this.personForm.correo == "" || this.personForm.carrera == "" || this.personForm.id_imagen == ""){
+    Swal.fire({
+      icon: 'error',
+      title: 'Rellena todos los datos para continuar',
+    })
+   }
+   else{
+     this.crearUsuario();
+     Swal.fire({
+      icon: 'success',
+      title: 'Bienvenido tus datos fueron guardados correctamente',
+    })
+   }
+  }
   crearUsuario (){
-    console.log(this.personForm);
+    console.log("entre");
     this.personService.CreatePerson(this.personForm).subscribe(
       res => {
         console.log(res)
