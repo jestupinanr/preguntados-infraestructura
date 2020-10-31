@@ -47,13 +47,14 @@ create table IMAGEN (
 )
 
 insert into QUESTION set
-    text_question = '¿Cuál es el nombre de esta sede?',
-    id_imagen = '../assets/images/tairona.jpg',
-    respuesta = 3,
-    opcion_1 = 'Awa',
-    opcion_2 = 'Wayuu',
-    opcion_3 = 'Tairona',
-    clue = 'Fueron un grupo indígena que habitaba en los departamentos colombianos de Magdalena, Guajira y Cesar, en las faldas de la Sierra nevada de santa marta'
+    text_question = '¿Qué números de salones se encuentran en la sede Caribe?',
+    id_imagen = 'https://pbs.twimg.com/media/DBl9enqXUAAw2Cu.jpg:large',
+    respuesta = 2,
+    opcion_1 = 'Salones del 5228 al 5230',
+    opcion_2 = 'Salones del 9101 al 9401',
+    opcion_3 = 'Salones del 8101 al 8305',
+    opcion_4 = 'Salones del 7000 al 7308',
+    clue = ''
 insert into SCORE set
     id_user = 8,
     score = 1245,

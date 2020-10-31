@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 class GameController {
     getAllQuestions(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const questions = yield database_1.default.query('SELECT * from question');
+            const questions = yield database_1.default.query('SELECT * from question ORDER BY RAND() LIMIT 10');
             res.json(questions);
         });
     }

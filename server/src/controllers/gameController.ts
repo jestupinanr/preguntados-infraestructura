@@ -4,7 +4,7 @@ import pool from '../database';
 class GameController {
     
     public async getAllQuestions (req:Request, res:Response) : Promise<any>{
-        const questions = await pool.query('SELECT * from question');
+        const questions = await pool.query('SELECT * from question ORDER BY RAND() LIMIT 10');
         res.json(questions);
     }
     public async saveScore (req: Request, res : Response): Promise<void>{
