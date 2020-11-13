@@ -1,5 +1,17 @@
-<h1>JUGAR <i class="fas fa-gamepad"></i></h1>
+<div class="col-md-6">
+  <h1>JUGAR <i class="fas fa-gamepad"></i></h1>
+</div>
 <div class="container-temp" *ngIf="empezar">
+  <div> 
+    <h2 class="my-fixed-item" ng-change="questionAnswer">{{questionNumber}}/10</h2>
+  </div>
+  <br>
+  <br>
+  <div> 
+    <h2 class="my-fixed-item" >Tu tiempo</h2>
+  </div>
+  <br>
+  <br>
   <div> 
     <h2 id="temp" class="my-fixed-item" ng-change="time" >{{time}}</h2>
   </div>
@@ -25,31 +37,34 @@
     <button id="dosVeces" class="my-fixed-item btnBonus btn btn-outline-info" (click) = "dosVeces()">Dos Intentos</button>
   </div>
 </div>
-<div class="row align-items-center" *ngIf="!empezar">
+<div *ngIf="!empezar">
+  <div class="text-center imageInstruction">
+    <img src="../../../assets/images/instrucciones.png" class="rounded img-fluid " alt="Responsive image">
+  </div>
   <button type="button" class="btn btn-primary btn-lg btn-block" (click)="empezarJuego()">empezar</button>
 </div>
-<div class="row row-cols-1 row-cols-md-2" *ngIf="empezar">
-  <div class="col mb-4" *ngFor ="let question of question; let i=index">
-    <div class="card">
+<div class="row row-cols-1 row-cols-md-2 " *ngIf="empezar">
+  <div class="col-md-8 centrarCaja" *ngFor ="let question of question; let i=index">
+    <div class="card" id="card{{i}}" style="display: none;">
       <h5 class="card-title">{{question.text_question}}</h5>
-      <img [src]="question.id_imagen" class="  animated fadeIn fast card-img-top" alt="...">
+      <img [src]="question.id_imagen" class="fadeIn fast card-img-top img-fluid imageCard" alt="...">
       <div class="card-body">
         <p class="card-text">{{question.clue}}</p>
         <hr>
         <div class="checkbox">
-          <button type="button" id ="op{{i}}1" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,1)">{{question.opcion_1}}</button>
+          <button type="button" id ="op{{i}}1" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,1)" >{{question.opcion_1}}</button>
         </div>
         <hr>
         <div class="checkbox">
-          <button type="button"  id ="op{{i}}2" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,2)">{{question.opcion_2}}</button>
+          <button type="button"  id ="op{{i}}2" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,2)" >{{question.opcion_2}}</button>
         </div>
         <hr>
         <div class="checkbox">
-          <button type="button"  id ="op{{i}}3" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,3)">{{question.opcion_3}}</button>
+          <button type="button"  id ="op{{i}}3" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,3)" >{{question.opcion_3}}</button>
         </div>
         <hr>
         <div class="checkbox">
-          <button type="button"  id ="op{{i}}4" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,4)">{{question.opcion_4}}</button>
+          <button type="button"  id ="op{{i}}4" class="btn btn-outline-dark btn-block" (click)="saberRespuesta(i,4)" >{{question.opcion_4}}</button>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import { PagPrincipalComponent } from "./pages/pag-principal/pag-principal.compo
 import { SignInComponent } from "./components/sign-in/sign-in.component";
 import { PlayComponent } from './pages/play/play.component';
 import { PagesComponent } from './pages/pages.component';
+import { AboutComponent } from './pages/about/about.component';
+
 
 const APP_ROUTING: Routes = [
 
@@ -15,6 +17,7 @@ const APP_ROUTING: Routes = [
       { path: 'play/:id', component: PlayComponent },
       { path: 'ranking', component: RankingComponent },
       { path: 'home', component: PagPrincipalComponent },
+      { path: 'about', component: AboutComponent },
       { path: '', component: PagPrincipalComponent }
     ]
   },

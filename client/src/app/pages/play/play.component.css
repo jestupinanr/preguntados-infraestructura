@@ -10,10 +10,10 @@
     float: right;
     padding-right: 4%;
 }
-img {
-    width: 600px;
-    height: 400px;
-    margin-left: 5%;
+.imageCard {
+    width: 730px;
+    height: 380px;
+    margin-left: 17%;
 }
 
 h5{
@@ -40,6 +40,18 @@ h5{
 }
 .btnsBonus{
 padding-left: 64px;
+}
+
+.imageInstruction{
+    width: 70%;
+    position: relative;
+    left: 10%;
+    
+}
+
+.centrarCaja {
+    position: relative;
+    left: 20%;
 }
 
 

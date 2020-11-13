@@ -5,6 +5,7 @@ import { PagPrincipalComponent } from "../pages/pag-principal/pag-principal.comp
 import { SignInComponent } from "../components/sign-in/sign-in.component";
 import { PlayComponent } from '../pages/play/play.component';
 import { PagesComponent } from '../pages/pages.component';
+import { AboutComponent } from '../pages/about/about.component';
 
 const PAGES_ROUTING: Routes = [
 
@@ -14,6 +15,7 @@ const PAGES_ROUTING: Routes = [
       { path: 'home', component: PagPrincipalComponent },
       { path: 'play', component: PlayComponent },
       { path: 'ranking', component: RankingComponent },
+      { path: 'about', component: AboutComponent },
 
     ]
   },

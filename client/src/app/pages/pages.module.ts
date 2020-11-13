@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { PAGE_ROUTES } from './pages.routes';
 import { CardQuestionComponent } from './card-question/card-question.component';
 import { CreateQuestionsComponent } from './create-questions/create-questions.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CreateQuestionsComponent } from './create-questions/create-questions.co
     PagesComponent,
     FooterComponent,
     CardQuestionComponent,
-    CreateQuestionsComponent
+    CreateQuestionsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
